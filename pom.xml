@@ -1,22 +1,60 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
 	<modelVersion>4.0.0</modelVersion>
+
 	<groupId>com.test.service</groupId>
 	<artifactId>test-parent</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>Jenkins test parent pom</name>
-	<properties>
-		<module-one-version></module-one-version>
-	</properties>
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>com.test.service.module.one</groupId>
-				<artifactId>module-one</artifactId>
-				<version>1.0.0</version>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
+
+	<profiles>
+		<profile>
+			<modules>
+				<module>module-one</module>
+				<module>module-two</module>
+			</modules>
+		</profile>
+	</profiles>
+	
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<configuration>
+						<source>1.8</source>
+						<target>1.8</target>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+
+	<distributionManagement>
+		<repository>
+			<id>central</id>
+			<name>6093067c5d74-releases</name>
+			<url>http://gateway.docker.internal:8081/artifactory/libs-release-local</url>
+		</repository>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<name>6093067c5d74-snapshots</name>
+			<url>http://gateway.docker.internal:8081/artifactory/libs-release-local</url>
+		</snapshotRepository>
+	</distributionManagement>
+
 </project>
