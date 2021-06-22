@@ -10,6 +10,7 @@
 	<packaging>pom</packaging>
 	<name>Jenkins test parent pom</name>
 
+<!--  
 	<profiles>
 		<profile>
 			<modules>
@@ -18,7 +19,7 @@
 			</modules>
 		</profile>
 	</profiles>
-
+-->
 	<build>
 		<pluginManagement>
 			<plugins>
