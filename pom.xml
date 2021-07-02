@@ -12,7 +12,7 @@
 
 	<properties>
 		<dss.groupId>eu.europa.ec.joinup.sd-dss</dss.groupId>
-		<dss.version>5.7</dss.version>
+		<dss.version>5.8</dss.version>
 	</properties>
 
 	<profiles>
